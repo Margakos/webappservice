@@ -8,10 +8,10 @@
 
 <div align="center">
 
-<form action="/" method="post" id="loginForm" name="loginForm">
+<form action="/login" method="post" id="loginForm" name="loginForm">
 </br>
 <label for="username">Username</label>
-<input id="username" type="email" name="username" placeholder="Enter your email address" required=true/>
+<input id="username" type="email" name="username" placeholder="Enter your email" required=true/>
 </br></br>
 <label for="password">Password</label>
 <input id="password" type="password" name="password" placeholder="Enter your password " required=true/>
