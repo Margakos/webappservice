@@ -13,26 +13,26 @@ public class CreateUser {
 
 
 
-    @Pattern(regexp = CHARACTERS_PATTERN, message="{}")
+    @Pattern(regexp = CHARACTERS_PATTERN, message="{register.firstName.invalid}")
     private String firstName;
 
-    @Pattern(regexp = CHARACTERS_PATTERN, message="{}")
+    @Pattern(regexp = CHARACTERS_PATTERN, message="{register.lastName.invalid}")
     private String lastName;
 
-    @Pattern(regexp = PASSWORD_PATTERN,message="{}")
-    @Size(min=PASSWORD_MIN,message="{}")
+    @Pattern(regexp = PASSWORD_PATTERN,message="{register.password.invalid}")
+    @Size(min=PASSWORD_MIN,message="{register.password.size}")
     private String password;
 
-    @Pattern(regexp = MAIL_PATTERN,message="{}")
+    @Pattern(regexp = MAIL_PATTERN,message="{register.email.invalid}")
     private String email;
 
-    @Pattern(regexp = AFM_PATTERN,message="{}")
+    @Pattern(regexp = AFM_PATTERN,message="{register.afm.invalid}")
     private String afm;
 
-    @Pattern(regexp = PLATES_PATTERN,message="{}")
+    @Pattern(regexp = PLATES_PATTERN,message="{register.plates.invalid}")
     private String plates;
 
-    @Pattern(regexp = CHARACTERS_PATTERN,message="{}")
+    @Pattern(regexp = CHARACTERS_PATTERN,message="{register.role.invalid}")
     private String role;
 
 
