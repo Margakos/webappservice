@@ -20,8 +20,8 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
 //    private org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private String ADMIN_SUCCESS_URL = "/admin/create";
-    private String DEFAULT_SUCCESS_URL = "/user";
+    private String ADMIN_SUCCESS_URL = "/admin/home";
+    private String DEFAULT_SUCCESS_URL = "/user/home";
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,

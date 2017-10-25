@@ -1,29 +1,26 @@
 package com.regeneration.springboot.servicewebapp.controller;
 
 import com.regeneration.springboot.servicewebapp.forms.LoginForm;
-import com.regeneration.springboot.servicewebapp.services.AccountServiceImpl;
+import com.regeneration.springboot.servicewebapp.services.UserServiceImpl;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 @Controller
 public class LoginController {
 
 
 
-    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(AccountServiceImpl.class);
+    private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
 
     private static final String LOGIN_FORM = "loginForm";
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String login(Model model,
                         @RequestParam(name = "error", required = false) String error,
                         HttpSession session) {

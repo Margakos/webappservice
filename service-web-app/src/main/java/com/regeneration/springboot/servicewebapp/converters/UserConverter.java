@@ -1,6 +1,7 @@
 package com.regeneration.springboot.servicewebapp.converters;
 
 import com.regeneration.springboot.servicewebapp.forms.CreateUser;
+import com.regeneration.springboot.servicewebapp.forms.SearchForm;
 import com.regeneration.springboot.servicewebapp.model.User;
 
 public class UserConverter {
@@ -13,7 +14,10 @@ public class UserConverter {
         user.setLastName(createUser.getLastName());
         user.setAddress(createUser.getAddress());
         user.setPlates(createUser.getPlates());
+        user.setRole(createUser.getRole());
+        user.setUserId(createUser.getUserId());
         return user;
     }
+
 
 }

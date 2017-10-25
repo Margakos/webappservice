@@ -1,42 +1,37 @@
-package com.regeneration.springboot.servicewebapp.model;
+package com.regeneration.springboot.servicewebapp.forms;
 
-import javax.persistence.*;
+import com.regeneration.springboot.servicewebapp.model.User;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Entity
-@Table(name="repair")
-public class Repair {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Long id;
+public class CreateRepair {
 
-    @Column(name="type")
-    private String type;
 
-    @Column(name="description")
-    private String description;
+    private static final String TYPE_PATTERN="^[a-zA-Z ]*$";
+    private static final String DESCRIPTION_PATTERN="^[a-zA-Z ]*$";
+    //    private static final double PASSWORD_MIN=^[+-]?([0-9]*[.])?[0-9]+$;
+    private static final String STATUS_PATTERN="^[a-zA-Z ]*$";
 
-    @Column(name="cost")
-    private double cost;
 
-    @Column(name="dateOfArrive")
-    private LocalDateTime arriveDate;
-
-    @Column(name="status")
-    private String status;
-
-    @Column(name="userId", nullable=false)
     private Long userId;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,
-            CascadeType.DETACH,CascadeType.REFRESH})
-    @JoinColumn(name="userId", insertable = false, updatable = false, referencedColumnName = "userId")
-    private User user;
+    @Pattern(regexp = TYPE_PATTERN, message="{register.type.invalid}")
+    private String type;
 
-    public Repair() {
-    }
+    @Pattern(regexp = DESCRIPTION_PATTERN, message="{register.description.invalid}")
+    private String description;
+
+    //    @Size(min = PASSWORD_MIN, message="{register.cost.invalid}")
+    private double cost;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime arriveDate;
+
+    @Pattern(regexp = STATUS_PATTERN, message="{register.status.invalid}")
+    private String status;
 
     public Long getUserId() {
         return userId;
@@ -44,14 +39,6 @@ public class Repair {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getType() {
@@ -94,23 +81,20 @@ public class Repair {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public String toString() {
-        return "Repair{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
+        return "UserRegistration{" +
+                "type='" + type + '\'' +
                 ", description='" + description + '\'' +
-                ", cost=" + cost +
-                ", arriveDate=" + arriveDate +
                 ", status='" + status + '\'' +
+                ", cost='" + cost + '\'' +
+                ", arriveDate='" + arriveDate + '\'' +
                 '}';
     }
+
+
 }
+
+
+
+

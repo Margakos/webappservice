@@ -1,7 +1,7 @@
 package com.regeneration.springboot.servicewebapp.security;
 
 import com.regeneration.springboot.servicewebapp.model.User;
-import com.regeneration.springboot.servicewebapp.services.AccountService;
+import com.regeneration.springboot.servicewebapp.services.UserService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -22,14 +22,14 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
     private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(LoginAuthenticationProvider.class);
 
     @Autowired
-    private AccountService accountService;
+    private UserService userService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String email = authentication.getName();
         String password = (String) authentication.getCredentials();
 
-        User retrievedUser = accountService.login(email, password);
+        User retrievedUser = userService.login(email, password);
         GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(retrievedUser.getRole());
         List rolesList = new ArrayList();
         rolesList.add(grantedAuthority);
