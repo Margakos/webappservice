@@ -12,11 +12,12 @@ public class CreateRepair {
 
     private static final String TYPE_PATTERN="^[a-zA-Z ]*$";
     private static final String DESCRIPTION_PATTERN="^[a-zA-Z ]*$";
-    //    private static final double PASSWORD_MIN=^[+-]?([0-9]*[.])?[0-9]+$;
     private static final String STATUS_PATTERN="^[a-zA-Z ]*$";
 
 
     private Long userId;
+
+    private Long id;
 
     @Pattern(regexp = TYPE_PATTERN, message="{register.type.invalid}")
     private String type;
@@ -24,7 +25,6 @@ public class CreateRepair {
     @Pattern(regexp = DESCRIPTION_PATTERN, message="{register.description.invalid}")
     private String description;
 
-    //    @Size(min = PASSWORD_MIN, message="{register.cost.invalid}")
     private double cost;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -79,6 +79,14 @@ public class CreateRepair {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

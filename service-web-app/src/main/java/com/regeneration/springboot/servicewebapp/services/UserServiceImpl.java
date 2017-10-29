@@ -1,8 +1,11 @@
 package com.regeneration.springboot.servicewebapp.services;
 
 import com.regeneration.springboot.servicewebapp.exceptions.InvalidCredentialsException;
+import com.regeneration.springboot.servicewebapp.model.Repair;
 import com.regeneration.springboot.servicewebapp.model.User;
+import com.regeneration.springboot.servicewebapp.repositories.RepairRepository;
 import com.regeneration.springboot.servicewebapp.repositories.UserRepository;
+import com.sun.org.apache.regexp.internal.RE;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
@@ -19,13 +22,14 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
 
-
     private final static org.slf4j.Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
     private Set<String> loggedInUsers = new HashSet<>();
 
 
     @Autowired
     private UserRepository userRepository;
+
+
 
     @Override
     public User login(String email, String password) throws AuthenticationException {
@@ -60,19 +64,16 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmailOrAfm(input, input);
     }
 
+
     @Override
     public List<User> searchAll() {
 
-        List<User> users=new ArrayList();
+        List<User> users = new ArrayList();
 
-         userRepository.findAll().forEach(users::add);
-         return users;
+        userRepository.findAll().forEach(users::add);
+        return users;
     }
 
-    @Override
-    public void deleteUser(User user) {
-        userRepository.delete(user);
-    }
 
     @Override
     public void deleteUser(Long id) {

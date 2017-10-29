@@ -1,5 +1,6 @@
 package com.regeneration.springboot.servicewebapp.services;
 
+import com.regeneration.springboot.servicewebapp.model.Repair;
 import com.regeneration.springboot.servicewebapp.model.User;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Repository;
@@ -18,7 +19,7 @@ public interface UserService {
     void update(User user) throws Exception;
 
     List<User> searchAll();
- void deleteUser(User user);
+
     void deleteUser(Long input) throws Exception;
       User findByEmailOrAfm(String input);
 }
