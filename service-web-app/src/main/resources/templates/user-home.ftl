@@ -14,11 +14,7 @@
                 height: 100%;
                 background-repeat: no-repeat;
                 background-image: url("/REPAIR.png");
-                background: rgb(185, 210, 224); /* Old browsers */
-                background: -moz-radial-gradient(center, ellipse cover, rgba(185, 210, 224, 1) 0%, rgba(187, 214, 228, 1) 0%, rgba(186, 211, 225, 1) 15%, rgba(186, 211, 225, 1) 38%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 82%, rgba(158, 191, 208, 1) 100%); /* FF3.6-15 */
-                background: -webkit-radial-gradient(center, ellipse cover, rgba(185, 210, 224, 1) 0%, rgba(187, 214, 228, 1) 0%, rgba(186, 211, 225, 1) 15%, rgba(186, 211, 225, 1) 38%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 82%, rgba(158, 191, 208, 1) 100%); /* Chrome10-25,Safari5.1-6 */
-                background: radial-gradient(ellipse at center, rgba(185, 210, 224, 1) 0%, rgba(187, 214, 228, 1) 0%, rgba(186, 211, 225, 1) 15%, rgba(186, 211, 225, 1) 38%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 82%, rgba(158, 191, 208, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b9d2e0', endColorstr='#9ebfd0', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+                background-size:100% 130%;
 
             }
 
@@ -107,7 +103,8 @@
     </head>
 </head>
 <body>
-<nav class="navbar navbar-default">
+
+        <nav class="navbar navbar-default">
             <div class="container">
                 <div id="navbar" class="college navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -126,7 +123,7 @@
 <h2 style="color:green">${message!""}</h2>
 
 <div class="container">
-    <h2> Your upcoming Repairs</h2>
+    <h2 class="well"> Your Repairs</h2>
     <div class="row">
     <div class="col-sm-4 col-sm-offset-8">
             <form  action="/user/home" method="post" name="createUser" id="createUser">
@@ -138,7 +135,7 @@
     </div>
     <!-- /.row -->
 <#if repairs??>
-    <h3>Retrieved repairs:</h3>
+<div class="well">
     <table class="table">
         <thead>
         <tr>

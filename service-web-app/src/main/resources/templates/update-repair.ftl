@@ -1,56 +1,91 @@
 <@layout>
-        <!DOCTYPE html>
+<!DOCTYPE html>
+    <#import "/spring.ftl" as spring/>
 
-<html lan="en">
+<html lang="en">
 <head>
     <title>My Service</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
 
+    <h2>${message!""}</h2>
+    <h2>${errorMessage!""}</h2>
 
-<div align="center">
-    <form action="/admin/update/repair" method="post"  id="createRepair" name="createRepair">
+    <h2 class="well">Update Repair</h2>
+    <div class="col-lg-12 well">
+        <div class="row">
+            <form action="/admin/update/repair" method="post" id="createRepair" name="createRepair">
+                <div class="col-sm-12">
+                    <input type="hidden" name="id" value="${createRepair.id}"/>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <@spring.bind "createRepair.userId"/>
+                            <label>User Id</label>
+                            <input id="userId" name="userId" type="text" value="${createRepair.userId}" placeholder="Enter User Id Here.." class="form-control" required>
+                            <#list spring.status.errorMessages as error>
+                                <span>${error}</span>
+                            </#list>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <@spring.bind "createRepair.type"/>
+                            <label>Service Type</label><br>
+                            <input name="type" type="radio" value="Small" checked> Small &emsp; &emsp;
+                            <input name="type" type="radio" value="Large"> Large<br>
+                            <#list spring.status.errorMessages as error>
+                                <span>${error}</span>
+                            </#list>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <@spring.bind "createRepair.arriveDate"/>
+                            <label>Arrival</label>
+                            <input id="arriveDate" name="arriveDate" type="datetime-local" value="${createRepair.arriveDate}" placeholder="Enter Arrival Date Here.." class="form-control" required>
+                            <#list spring.status.errorMessages as error>
+                                <span>${error}</span>
+                            </#list>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <@spring.bind "createRepair.status"/>
+                            <label>Status</label>
+                            <select id="status" name="Status" class="form-control">
+                                <option value="Pending">Pending</option>
+                                <option value="inProgress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                            <#list spring.status.errorMessages as error>
+                                <span>${error}</span>
+                            </#list>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <@spring.bind "createRepair.description"/>
+                        <label>Description</label>
+                        <textarea id="description" name="description" type="textarea" placeholder="Enter Description Here.." class="form-control" maxlength="200" rows="4" required>${createRepair.description}</textarea>
+                        <#list spring.status.errorMessages as error>
+                            <span>${error}</span>
+                        </#list>
+                    </div>
+                    <div class="form-group">
+                        <@spring.bind "createRepair.cost"/>
+                        <label>Cost</label>
+                        <input id="cost" name="cost" type="text" value="${createRepair.cost}" placeholder="Enter Cost Here.." class="form-control" required>
+                        <#list spring.status.errorMessages as error>
+                            <span>${error}</span>
+                        </#list>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-info">Update</button>
+                </div>
 
-        <input type="hidden" name="id" value="${createRepair.id}"/>
-
-        <label for="cost">Cost</label>
-        <input id="cost" type="text" name="cost" placeholder="enter the cost" value="${createRepair.cost}" required=true/>
-    <br/><br/>
-
-<label for="description">Description</label>
-<input id="description" type="text" name="description" value="${createRepair.description}" placeholder="enter the description of repair" required=true/>
-</br></br>
-
-<label for="date">Date</label>
-<input id="date" type="datetime-local" name="arriveDate" value="${createRepair.arriveDate}" placeholder="Enter the started day of service" required=true/>
-        <br/><br/>
-
-<label for="type">Type</label>
-<select id="type" name="Type">
-<option value="Small" label="small"/>
-<option value="Large" label="large"/>
-</select>
-<br/><br/>
-<label for="userId">User ID</label>
-<input id="userId" type="number" name="userId" value="${createRepair.userId}" placeholder="enter the type"  required=true/>
-
-<label for="status">Status</label>
-<select id="status" name="Status">
-<option value="Pending" label="pending"/>
-<option value="inProgress" label="in Progress"/>
-<option value="Completed" label="completed"/>
-</select>
-        <br/><br/>
-
-
-
-<input type="submit" value="update"/>
-        </form>
-
-
+            </form>
         </div>
+    </div>
 
-        </body>
-        </html>
-        </@layout>
+</div>
+</body>
+</html>
+</@layout>
+

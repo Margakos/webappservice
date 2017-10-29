@@ -14,14 +14,9 @@
 
             body, html {
                 height: 100%;
-                background-image: url("..\REPAIR.png");
                 background-repeat: no-repeat;
-                background: rgb(185, 210, 224); /* Old browsers */
-                background: -moz-radial-gradient(center, ellipse cover, rgba(185, 210, 224, 1) 0%, rgba(187, 214, 228, 1) 0%, rgba(186, 211, 225, 1) 15%, rgba(186, 211, 225, 1) 38%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 82%, rgba(158, 191, 208, 1) 100%); /* FF3.6-15 */
-                background: -webkit-radial-gradient(center, ellipse cover, rgba(185, 210, 224, 1) 0%, rgba(187, 214, 228, 1) 0%, rgba(186, 211, 225, 1) 15%, rgba(186, 211, 225, 1) 38%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 82%, rgba(158, 191, 208, 1) 100%); /* Chrome10-25,Safari5.1-6 */
-                background: radial-gradient(ellipse at center, rgba(185, 210, 224, 1) 0%, rgba(187, 214, 228, 1) 0%, rgba(186, 211, 225, 1) 15%, rgba(186, 211, 225, 1) 38%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 68%, rgba(169, 199, 215, 1) 82%, rgba(158, 191, 208, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b9d2e0', endColorstr='#9ebfd0', GradientType=1); /* IE6-9 fallback on horizontal gradient */
-
+                background-image: url("/REPAIR.png");
+                background-size:100% 130%;
             }
 
             body {
@@ -117,15 +112,14 @@
                         <li><a href="/admin/home">Home</a></li>
                         <li><a href="/admin/create">New customer</a></li>
                         <li><a href="/admin/create/repair">Create new repair</a></li>
-                        <li><a href="/admin/search">Search User</a></li>
                         <li><a href="/admin/search/repair">Search Repair</a></li>
+                        <li><a href="/admin/search">Search User</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
-            <#--<h3>Administrator Page</h3>-->
                 <#nested>
         </div>
     </body>
